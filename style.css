@@ -1,0 +1,72 @@
+html {
+  --button-color: rgb(111, 194, 100);
+  --hover-button-color: rgb(141, 221, 131);
+  --clicked-button-color: rgb(131, 207, 121);
+  --options-color: rgb(176, 221, 236);
+  --options-hover-color: rgb(181, 229, 233);
+}
+
+.move,.movable {
+  min-height: 50px;
+  min-width: 50px;
+  border-radius: 0px;
+  font-size: 30px;
+  padding: 3px;
+}
+
+.moveGrid {
+  display: grid;
+  grid-template:  ". . ." 1fr
+                  ". . ." 1fr
+                  ". . ." 1fr/
+                  1fr 1fr 1fr;
+  height: fit-content;
+  width: fit-content;
+}
+
+.move,.movable {
+  background: var(--button-color);
+  box-shadow: 0px 0px 0px transparent;
+  text-shadow: 0px 0px 0px transparent;
+  border-color: black;
+}
+
+.movable:hover {
+  background: var(--hover-button-color);
+  box-shadow: 0px 0px 0px transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.options {
+  min-height: 30px;
+  min-width: 60px;
+  border-radius: 5px;
+  border-color: black;
+  background: var(--options-color);
+  box-shadow: 0px 0px 0px transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.options:hover {
+  background: var(--options-hover-color);
+  box-shadow: 0px 0px 0px transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:active {
+  outline: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.optionsGrid {
+  padding: 10px;
+  height: fit-content;
+  width: fit-content;
+}
+
+.clicked.move {
+  background: var(--clicked-button-color);
+}
