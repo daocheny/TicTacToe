@@ -34,7 +34,7 @@ function handleLoad () {
             for (let i = 0; i <= 2; i++) {
               for (let j = 0; j <= 2; j++) {
                 if (cell[i][j].textContent === "") {
-                  cell[i][j].className = "move";
+                  cell[i][j].classList.remove("movable");
                 }
               }
             }
@@ -59,7 +59,7 @@ function handleLoad () {
         opp = "X";
       }
       cell[i][j].textContent = s;
-      cell[i][j].className = "move clicked";
+      cell[i][j].classList.add("clicked");
       instructions.textContent = opp + "'s turn!";
       counter++;
       if (counter >= 5) {
@@ -70,7 +70,7 @@ function handleLoad () {
     for (let i = 0; i <= 2; i++) {
       for (let j = 0; j <= 2; j++) {
         cell[i][j].textContent = "";
-        cell[i][j].className = "movable";
+        cell[i][j].classList.add("movable");
       }
     }
     counter = 0;
@@ -87,7 +87,7 @@ function handleLoad () {
     for (let i = 0; i <= 2; i++) {
       for (let j = 0; j <= 2; j++) {
         cell[i][j].textContent = "";
-        cell[i][j].className = "move";
+        cell[i][j].classList.remove("movable", "clicked");
       }
     }
     start.textContent = "Start"
