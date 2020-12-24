@@ -34,7 +34,6 @@ function handleLoad () {
       }
       if (winning) {
         toggleClick = false;
-        toggleStarted = false;
         for (let i = 0; i <= 2; i++) {
           for (let j = 0; j <= 2; j++) {
             if (cell[i][j].textContent === "") {
@@ -43,15 +42,14 @@ function handleLoad () {
           }
         }
         instructions.textContent =
-        `${s} won! Click "Reset" to start a new game!`;
+        `${s} won! Click "Reset" to start a new game or click "Undo" to go back!`;
         return;
       }
     }
     if (counter === 9) {
       toggleClick = false;
-      toggleStarted = false;
       instructions.textContent =
-      `It's a draw! Click "Reset" to start a new game!`;
+      `It's a draw! Click "Reset" to start a new game or click "Undo" to go back!`;
       return;
     }        
   }  
@@ -119,14 +117,21 @@ function handleLoad () {
         s = "X";
       }
       counter--;
+      toggleClick = true;
       let tmp = moveList[counter];
       let i = tmp[0];
-      let j = tmp[1];
+      let j = tmp[1];    
       cell[i][j].textContent = "";
       cell[i][j].classList.remove("clicked");
       cell[i][j].classList.add("movable");
       instructions.textContent = s + "'s turn!";
-
+      for (let i = 0; i <= 2; i++) {
+        for (let j = 0; j <= 2; j++) {
+          if (cell[i][j].textContent === "") {
+            cell[i][j].classList.add("movable");
+          }
+        }
+      }
     }
   }
 
