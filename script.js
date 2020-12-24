@@ -67,6 +67,7 @@ function handleLoad () {
     }
     cell[i][j].textContent = s;
     cell[i][j].classList.add("clicked");
+    cell[i][j].classList.remove("movable");
     instructions.textContent = opp + "'s turn!";
     moveList[counter] = [i,j];
     counter++;
@@ -87,6 +88,7 @@ function handleLoad () {
     toggleStarted = true;
     toggleClick = true;
     toggleReset = false;
+    undo.classList.add("clickable");
     start.textContent = "Reset";
     instructions.textContent = s + "'s turn!";
   }
@@ -96,6 +98,7 @@ function handleLoad () {
     toggleClick = false;
     toggleReset = true;
     s = "X";
+    undo.classList.remove("clickable");
     for (let i = 0; i <= 2; i++) {
       for (let j = 0; j <= 2; j++) {
         cell[i][j].textContent = "";
@@ -110,10 +113,20 @@ function handleLoad () {
     if (counter === 0) {
       return;
     } else {
+      if (s === "X") {
+        s = "O";
+      } else {
+        s = "X";
+      }
       counter--;
       let tmp = moveList[counter];
-      moveList[counter] = undefined;
-      console.log(moveList);
+      let i = tmp[0];
+      let j = tmp[1];
+      cell[i][j].textContent = "";
+      cell[i][j].classList.remove("clicked");
+      cell[i][j].classList.add("movable");
+      instructions.textContent = s + "'s turn!";
+
     }
   }
 
