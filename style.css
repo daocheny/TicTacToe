@@ -6,7 +6,7 @@ html {
   --options-hover-color: rgb(181, 229, 233);
 }
 
-.move,.movable {
+.move {
   min-height: 50px;
   min-width: 50px;
   border-radius: 0px;
@@ -24,7 +24,7 @@ html {
   width: fit-content;
 }
 
-.move,.movable {
+.move {
   background: var(--button-color);
   box-shadow: 0px 0px 0px transparent;
   text-shadow: 0px 0px 0px transparent;
@@ -47,7 +47,7 @@ html {
   text-shadow: 0px 0px 0px transparent;
 }
 
-.options:hover {
+.options.clickable:hover {
   background: var(--options-hover-color);
   box-shadow: 0px 0px 0px transparent;
   text-shadow: 0px 0px 0px transparent;
@@ -67,6 +67,6 @@ button:focus {
   width: fit-content;
 }
 
-.clicked.move {
+.clicked {
   background: var(--clicked-button-color);
 }
