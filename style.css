@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
 html {
   --button-color: rgb(111, 194, 100);
   --hover-button-color: rgb(141, 221, 131);
@@ -69,4 +71,8 @@ button:focus {
 
 .clicked {
   background: var(--clicked-button-color);
+}
+
+body, button {
+  font-family: 'Lato', sans-serif;
 }
